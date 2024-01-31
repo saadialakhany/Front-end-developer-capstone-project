@@ -1,12 +1,12 @@
 import "./App.css";
 import React from "react";
-import Header from "./Components/Header";
-import Main from "./Components/Main";
-import Footer from "./Components/Footer";
-import Highlights from "./Components/Highlights";
-import About from "./Components/About";
-import Testimonials from "./Components/Testimonials";
-import Reservation from "./Components/Reservation.js";
+import Header from "./Components/Header.js";
+import Main from "./Components/Main.js";
+import Footer from "./Components/Footer.js";
+import Highlights from "./Components/Highlights.js";
+import About from "./Components/About.js";
+import Testimonials from "./Components/Testimonials.js";
+import { Reservation } from "./Components/Reservation.js";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

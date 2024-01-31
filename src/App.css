@@ -1,38 +1,142 @@
-.App {
+/* background-color: #495e57; */
+/* background-color: #f4ce14; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: "Karla", sans-serif;
+  font-family: "Markazi Text", serif;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 30px auto;
+  max-width: 70%;
+}
+img {
+  align-self: center;
+  cursor: pointer;
+  padding-right: 20px;
+}
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  /* padding: 0 20px; */
+}
+a:link,
+a:visited {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: black;
+  font-size: 26px;
+  font-family: "Markazi Text", serif;
+  font-weight: 700;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a:hover,
+a:active {
+  text-decoration: underline;
+  background-color: #f4ce14;
+  border-radius: 10px;
+}
+.hero-section {
+  background-color: #495e57;
+  position: relative;
+  margin: 0 auto;
+  max-width: 70%;
+  border-radius: 2px;
+}
+.hero-section img {
+  width: 275px;
+  position: absolute;
+  top: 0;
+  right: 15%;
+  border-radius: 10px;
+}
+.hero-textbox {
+  width: 50%;
+  padding: 30px;
+}
+.hero-textbox h1 {
+  font-family: "Markazi Text", serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #f4ce14;
+  margin-bottom: -20px;
+}
+.hero-textbox h3 {
+  color: #edefee;
+  font-family: "Markazi Text", serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.hero-textbox p {
+  color: #edefee;
+  font-family: "Karla", sans-serif;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.btn--reserve {
+  background-color: #f4ce14;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  border: 2px black solid;
+  cursor: pointer;
+}
+.btn--reserve:hover {
+  background-color: #edefee;
+  text-decoration: underline;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 1151px) {
+  nav,
+  .hero-section {
+    max-width: 90%;
+  }
+  a:link,
+  a:visited {
+    padding: 5px 10px;
+  }
+  .hero-section img {
+    right: 5%;
+    width: 325px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 885px) {
+  nav {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  img {
+    justify-self: center;
+    padding-right: 0;
+  }
+}
+@media (max-width: 772px) {
+  .hero-section {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    justify-items: center;
+  }
+  .hero-textbox {
+    width: 90%;
+  }
+  .hero-section img {
+    grid-row: 2/3;
+    width: 80%;
+    position: sticky;
   }
 }
