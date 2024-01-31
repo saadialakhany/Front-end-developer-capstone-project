@@ -12,13 +12,43 @@ code {
   font-family: "Markazi Text", serif;
 }
 
+.app {
+  max-width: 80%;
+  display: grid;
+  grid-template-rows: 1fr 3fr 3fr 3fr 3fr 1fr;
+  row-gap: 50px;
+  margin: 0 auto;
+}
+h1 {
+  font-family: "Markazi Text", serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+.btn {
+  background-color: #f4ce14;
+  border-radius: 10px;
+  font-size: 24px;
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  border: 2px black solid;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #edefee;
+  text-decoration: underline;
+}
+/********************************************
+*********************************************
+            Nav Section 
+*********************************************
+*********************************************/
 nav {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  margin: 30px auto;
-  max-width: 70%;
+  margin: 25px 0;
+  /* max-width: 70%; */
 }
-img {
+nav img {
   align-self: center;
   cursor: pointer;
   padding-right: 20px;
@@ -29,47 +59,47 @@ ul {
   justify-content: space-between;
   /* padding: 0 20px; */
 }
-a:link,
-a:visited {
+nav a:link,
+nav a:visited {
   display: inline-block;
   text-decoration: none;
   padding: 10px 20px;
   color: black;
-  font-size: 26px;
+  font-size: 28px;
   font-family: "Markazi Text", serif;
   font-weight: 700;
   text-align: center;
 }
-a:hover,
-a:active {
+nav a:hover,
+nav a:active {
   text-decoration: underline;
   background-color: #f4ce14;
   border-radius: 10px;
 }
+/********************************************
+*********************************************
+            Hero Section 
+*********************************************
+*********************************************/
 .hero-section {
   background-color: #495e57;
   position: relative;
-  margin: 0 auto;
-  max-width: 70%;
-  border-radius: 2px;
+  height: 50vh;
+  border-radius: 5px;
 }
 .hero-section img {
-  width: 275px;
+  height: 110%;
   position: absolute;
   top: 0;
   right: 15%;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .hero-textbox {
-  width: 50%;
+  width: 45%;
   padding: 30px;
 }
 .hero-textbox h1 {
-  font-family: "Markazi Text", serif;
-  font-size: 64px;
-  font-weight: 700;
   color: #f4ce14;
-  margin-bottom: -20px;
 }
 .hero-textbox h3 {
   color: #edefee;
@@ -81,24 +111,109 @@ a:active {
 .hero-textbox p {
   color: #edefee;
   font-family: "Karla", sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 30px;
 }
 .btn--reserve {
-  background-color: #f4ce14;
-  border-radius: 10px;
   padding: 10px 20px;
-  font-size: 20px;
-  font-family: "Karla", sans-serif;
-  font-weight: 600;
-  border: 2px black solid;
-  cursor: pointer;
-}
-.btn--reserve:hover {
-  background-color: #edefee;
-  text-decoration: underline;
 }
 
+/********************************************
+*********************************************
+            Highlights Section 
+*********************************************
+*********************************************/
+.highlights--header {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+.highlights--header h1 {
+  color: #495e57;
+}
+.btn--menu {
+  padding: 10px 20px;
+  align-self: center;
+}
+.highlights--main {
+  display: flex;
+  gap: 70px;
+}
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #495e57;
+  border-radius: 16px;
+  box-shadow: 10px 10px 20px rgb(137, 140, 136);
+  font-family: "Karla", sans-serif;
+}
+.feature-card img {
+  width: 100%;
+  max-height: 370px;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}
+.feature-card-text {
+  padding: 20px;
+}
+.text--header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.text--header .price {
+  color: red;
+  font-weight: 700;
+}
+.description {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.feature--order-link a:link,
+.feature--order-link a:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  padding-right: 10px;
+}
+.feature--order-link a:hover,
+.feature--order-link a:active {
+  text-decoration: underline;
+}
+.icon {
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+}
+/********************************************
+*********************************************
+            Testimonials Section 
+*********************************************
+*********************************************/
+
+/********************************************
+*********************************************
+            About Section 
+*********************************************
+*********************************************/
+
+/********************************************
+*********************************************
+            Footer Section 
+*********************************************
+*********************************************/
+
+/********************************************
+*********************************************
+            Media Queries Section 
+*********************************************
+*********************************************/
 @media (max-width: 1151px) {
   nav,
   .hero-section {
