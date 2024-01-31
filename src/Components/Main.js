@@ -9,6 +9,7 @@ function Main() {
     <main>
       <Outlet />
       <Highlights />
+      <Testimonials />
     </main>
   );
 }
