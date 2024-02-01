@@ -20,7 +20,7 @@ code {
 }
 h1 {
   font-family: "Markazi Text", serif;
-  font-size: 64px;
+  font-size: 76px;
   font-weight: 700;
 }
 .btn {
@@ -269,16 +269,20 @@ nav a:active {
   border-radius: 8px;
   padding-bottom: 30px;
 
-  /* background: linear-gradient(360deg, #495e57, #0b6e4f); */
+  background: linear-gradient(
+    in oklab,
+    rgba(73, 94, 87, 0.769),
+    rgba(244, 207, 20, 0.788)
+  );
 }
 .about-textbox {
   padding-left: 30px;
 }
 .about-textbox h1 {
-  color: #edefee;
+  color: #f4ce14;
 }
 .about-textbox h3 {
-  color: #f4ce14;
+  color: #edefee;
   font-family: "Markazi Text", serif;
   font-size: 36px;
   font-weight: 400;
@@ -288,7 +292,8 @@ nav a:active {
   font-family: "Karla", sans-serif;
   font-size: 22px;
   margin-bottom: 30px;
-  color: #edefee;
+  color: #333;
+  font-weight: 500;
 }
 .about-images {
   display: grid;
@@ -311,6 +316,45 @@ nav a:active {
             Footer Section 
 *********************************************
 *********************************************/
+footer {
+  background-color: #edefee;
+  color: #333;
+  font-family: "Karla", sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 30px;
+  border-radius: 8px;
+}
+.footer--logo {
+  width: 150px;
+}
+footer ul {
+  display: flex;
+  flex-direction: column;
+}
+footer h3 {
+  margin-bottom: 15px;
+}
+footer a:link,
+footer a:visited {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+footer a:hover,
+footer a:active {
+  text-decoration: underline;
+}
+
+.socials ul {
+  flex-direction: row;
+  font-size: 22px;
+  cursor: pointer;
+}
 
 /********************************************
 *********************************************
