@@ -2,6 +2,17 @@ import React from "react";
 import logo from "../images/Logo.svg";
 import { Link } from "react-router-dom";
 
+const handleClick = (anchor) => {
+  const id = `${anchor}-section`;
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
+
 function Nav() {
   return (
     <>
@@ -15,13 +26,13 @@ function Nav() {
             <Link to="/main/about">About</Link>
           </li>
           <li key="menu">
-            <Link to="/main/highlights">Menu</Link>
+            <Link to="#">Menu</Link>
           </li>
           <li key="reservations">
             <Link to="/reservation">Reservation</Link>
           </li>
           <li key="order online">
-            <Link to="/main/highlights">Order Online</Link>
+            <Link to="">Order Online</Link>
           </li>
           <li key="login">
             <Link to="">Login</Link>

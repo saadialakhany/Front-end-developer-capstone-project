@@ -4,7 +4,7 @@ import image2 from "../images/Mario and Adrian b.jpg";
 
 function About() {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <div className="about-textbox">
         <h1>Little Lemon</h1>
         <h3>Chicago</h3>
