@@ -357,7 +357,64 @@ footer a:active {
   font-size: 22px;
   cursor: pointer;
 }
-
+/********************************************
+*********************************************
+            Reservation Section 
+*********************************************
+*********************************************/
+.reservation {
+  width: 40%;
+  margin-left: 100px;
+  border-radius: 8px;
+}
+.reservation--header {
+  background-color: #495e57;
+  padding: 20px 20px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.reservation--header h1 {
+  color: #f4ce14;
+}
+.reservation--header p {
+  font-size: 26px;
+  color: #edefee;
+  font-family: "Karla", sans-serif;
+}
+.reservation--body {
+  font-size: 24px;
+  padding: 20px 20px;
+  background-color: #f4ce14;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+form {
+  display: grid;
+  max-width: 40%;
+  gap: 10px;
+  font-family: "Karla", sans-serif;
+}
+.reservation input,
+select {
+  font-size: 22px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 5px;
+}
+.reservation label {
+  font-weight: 700;
+}
+.btn--reserve--page {
+  margin: 20px 0;
+  background-color: #495e57;
+  color: #edefee;
+  border-color: #edefee;
+}
+.btn--reserve--page:hover {
+  background-color: #edefee;
+  color: #495e57;
+  border-color: #495e57;
+}
 /********************************************
 *********************************************
             Media Queries Section 
