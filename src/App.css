@@ -390,7 +390,7 @@ footer a:active {
 }
 form {
   display: grid;
-  max-width: 40%;
+  max-width: 50%;
   gap: 10px;
   font-family: "Karla", sans-serif;
 }
@@ -400,6 +400,7 @@ select {
   height: 50px;
   border-radius: 8px;
   padding: 0 5px;
+  border-width: 2px;
 }
 .reservation label {
   font-weight: 700;

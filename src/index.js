@@ -23,7 +23,6 @@ root.render(
           <Route path="about" element={<About />}></Route>
         </Route>
         <Route path="/reservation" element={<Reservation />}></Route>
-        <Route path="/footer" element={<Footer />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
