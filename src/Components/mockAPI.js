@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const availableTimesByDate = {
   "2024-02-10": ["14:00", "15:00", "16:00"],
   "2024-02-11": ["10:00", "11:00", "12:00"],
@@ -22,6 +24,8 @@ const availableTimesByDate = {
   "2024-03-02": ["10:00", "11:00", "12:00"],
 };
 
+let reservationsArray = [];
+
 const fetchAPI = (date) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -42,6 +46,7 @@ const submitAPI = (formData) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (formData) {
+        setLocalStrorage(formData);
         resolve(true); // Simulate successful submission
       } else {
         reject(new Error("Form submission failed."));
@@ -50,4 +55,15 @@ const submitAPI = (formData) => {
   });
 };
 
-export { fetchAPI, submitAPI };
+function setLocalStrorage(data) {
+  reservationsArray.push(data);
+  localStorage.setItem("reservation", JSON.stringify(reservationsArray));
+}
+
+function getLocalStorage() {
+  const data = JSON.parse(localStorage.getItem("reservation"));
+  if (!data) return;
+  reservationsArray = data;
+}
+
+export { fetchAPI, submitAPI, getLocalStorage };

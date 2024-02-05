@@ -299,6 +299,7 @@ nav a:active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  gap: 20px;
   padding: 10px;
 }
 .about-images img {
@@ -406,11 +407,19 @@ select {
   font-weight: 700;
 }
 .btn--reserve--page {
+  background-color: #f4ce14;
+  border-radius: 10px;
+  font-size: 24px;
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  border: 2px black solid;
+  cursor: pointer;
   margin: 20px 0;
   background-color: #495e57;
   color: #edefee;
   border-color: #edefee;
 }
+
 .btn--reserve--page:hover {
   background-color: #edefee;
   color: #495e57;
@@ -422,7 +431,7 @@ select {
        Confirmation Page Section 
 *********************************************
 *********************************************/
-section {
+.confirmation-booking {
   width: 50%;
   margin-left: 100px;
 }

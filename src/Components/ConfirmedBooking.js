@@ -13,7 +13,7 @@ function ConfirmedBooking() {
           <br></br>Your Table Reservation Request was Successful.
         </h1>
         <h3>
-          A Copy of Reservation has also been sent to your registered Email
+          A copy of reservation has also been sent to your registered email
           address.
         </h3>
       </div>

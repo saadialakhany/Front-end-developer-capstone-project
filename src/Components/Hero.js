@@ -1,7 +1,14 @@
 import React from "react";
 import heroImage from "../images/restauranfood.jpg";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+  const navigate = useNavigate();
+
+  function handleClick(e) {
+    e.preventDefault();
+    navigate("/reservation");
+  }
   return (
     <section className="hero-section">
       <img src={heroImage} alt="picture of food" />
@@ -14,7 +21,9 @@ function Hero() {
           commodo ex. Aenean vitae elit dignissim, commodo ex eget, imperdiet
           eros.
         </p>
-        <button className="btn btn--reserve">Reserve a table</button>
+        <button className="btn btn--reserve" onClick={handleClick}>
+          Reserve a table
+        </button>
       </div>
     </section>
   );

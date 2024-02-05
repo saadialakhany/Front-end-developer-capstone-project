@@ -1,5 +1,6 @@
 import React, { useReducer, useState, useEffect } from "react";
-import { fetchAPI, submitAPI } from "./mockAPI";
+import { fetchAPI, submitAPI, getLocalStorage } from "./mockAPI";
+import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 
 //const availableTimings = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
@@ -11,6 +12,7 @@ function BookingForm() {
     guests: "1",
     occassion: "Birthday",
   });
+  const navigate = useNavigate();
 
   const [availableTimings, dispatch] = useReducer(
     updateTimes,
@@ -18,29 +20,16 @@ function BookingForm() {
     initializeTimes
   );
 
+  useEffect(() => {
+    getLocalStorage();
+  }, []);
+
   function initializeTimes(selectedDate) {
     if (!selectedDate) {
       return Promise.resolve([]); // Resolve with an empty array if the date is falsy
     }
     return fetchData(selectedDate); // This should return a Promise that resolves to the timings
   }
-
-  useEffect(() => {
-    const fetchDataAndDispatch = async () => {
-      try {
-        if (!formData.date) {
-          dispatch({ type: "INITIALIZE_TIMES", timings: [] });
-          return;
-        }
-        const timings = await initializeTimes(formData.date);
-        dispatch({ type: "INITIALIZE_TIMES", timings });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchDataAndDispatch();
-  }, [formData.date]);
 
   async function fetchData(selectedDate) {
     try {
@@ -63,6 +52,35 @@ function BookingForm() {
     }
   }
 
+  useEffect(() => {
+    const fetchDataAndDispatch = async () => {
+      try {
+        if (!formData.date) {
+          dispatch({ type: "INITIALIZE_TIMES", timings: [] });
+          return;
+        }
+        const timings = await initializeTimes(formData.date);
+        dispatch({ type: "INITIALIZE_TIMES", timings });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchDataAndDispatch();
+  }, [formData.date]);
+
+  async function submitForm(formData) {
+    const response = await submitAPI(formData);
+    if (response) {
+      navigate("/confirmation");
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitForm(formData);
+  };
+
   return (
     <>
       <div className="reservation">
@@ -71,15 +89,16 @@ function BookingForm() {
           <h1>Reserve Table</h1>
           <p>Please fill in the form below to enable us to serve you better!</p>
         </div>
+
         <div className="reservation--body">
           <form>
             <label htmlFor="res-date">Choose date</label>
             <input
+              required
               type="date"
               id="res-date"
               value={formData.date}
               onChange={(e) => {
-                // debugger;
                 setFormData((prevState) => {
                   return { ...prevState, date: e.target.value };
                 });
@@ -90,13 +109,14 @@ function BookingForm() {
             <select
               id="res-time"
               value={formData.time}
-              onChange={(e) =>
+              onChange={(e) => {
                 setFormData((prevState) => ({
                   ...prevState,
                   time: e.target.value,
-                }))
-              }
+                }));
+              }}
             >
+              <option value="">Select a time</option>
               {availableTimings.length > 0 ? (
                 availableTimings.map((el) => (
                   <option key={el} value={el}>
@@ -146,7 +166,9 @@ function BookingForm() {
             <input
               type="submit"
               value="Make your Reservation"
-              className="btn btn--reserve--page"
+              className={`${!formData.date ? "" : "btn--reserve--page"}`}
+              disabled={!formData.date && !formData.time}
+              onClick={handleSubmit}
             />
           </form>
         </div>

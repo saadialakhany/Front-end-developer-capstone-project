@@ -23,16 +23,16 @@ function Nav() {
             <Link to="/">Home</Link>
           </li>
           <li key="about">
-            <Link to="/main/about">About</Link>
+            <Link to="">About</Link>
           </li>
           <li key="menu">
-            <Link to="/main/highlights">Menu</Link>
+            <Link to="">Menu</Link>
           </li>
           <li key="reservations">
             <Link to="/reservation">Reservation</Link>
           </li>
           <li key="order online">
-            <Link to="/main/highlights">Order Online</Link>
+            <Link to="">Order Online</Link>
           </li>
           <li key="login">
             <Link to="">Login</Link>
