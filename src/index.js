@@ -10,6 +10,7 @@ import About from "./Components/About.js";
 import Testimonials from "./Components/Testimonials.js";
 import { Reservation } from "./Components/Reservation.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ConfirmedBooking from "./Components/ConfirmedBooking.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,6 +24,7 @@ root.render(
           <Route path="about" element={<About />}></Route>
         </Route>
         <Route path="/reservation" element={<Reservation />}></Route>
+        <Route path="/confirmation" element={<ConfirmedBooking />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
