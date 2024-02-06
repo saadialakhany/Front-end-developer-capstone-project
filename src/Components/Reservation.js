@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import { fetchAPI, submitAPI, getLocalStorage } from "./mockAPI";
+import { fetchAPI, submitAPI, getLocalStorage } from "../mockAPI";
 import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 
@@ -20,6 +20,7 @@ function BookingForm() {
     initializeTimes
   );
 
+  //Getting data from Local Storage:
   useEffect(() => {
     getLocalStorage();
   }, []);
@@ -69,6 +70,7 @@ function BookingForm() {
     fetchDataAndDispatch();
   }, [formData.date]);
 
+  //Form Submission:
   async function submitForm(formData) {
     const response = await submitAPI(formData);
     if (response) {
