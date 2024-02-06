@@ -5,13 +5,14 @@ import Nav from "./Nav";
 
 //const availableTimings = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
-function BookingForm() {
+export function BookingForm() {
   const [formData, setFormData] = useState({
     date: "",
     time: "",
     guests: "1",
     occassion: "Birthday",
   });
+
   const navigate = useNavigate();
 
   const [availableTimings, dispatch] = useReducer(
@@ -19,11 +20,6 @@ function BookingForm() {
     [],
     initializeTimes
   );
-
-  //Getting data from Local Storage:
-  useEffect(() => {
-    getLocalStorage();
-  }, []);
 
   function initializeTimes(selectedDate) {
     if (!selectedDate) {
@@ -70,6 +66,11 @@ function BookingForm() {
     fetchDataAndDispatch();
   }, [formData.date]);
 
+  //Getting data from Local Storage:
+  useEffect(() => {
+    getLocalStorage();
+  }, []);
+
   //Form Submission:
   async function submitForm(formData) {
     const response = await submitAPI(formData);
@@ -80,6 +81,10 @@ function BookingForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.date || !formData.time) {
+      // Optionally show an error message to the user
+      return;
+    }
     submitForm(formData);
   };
 
@@ -111,6 +116,7 @@ function BookingForm() {
             <select
               id="res-time"
               value={formData.time}
+              required
               onChange={(e) => {
                 setFormData((prevState) => ({
                   ...prevState,
@@ -118,7 +124,9 @@ function BookingForm() {
                 }));
               }}
             >
-              <option value="">Select a time</option>
+              <option value="" disabled hidden>
+                Select a time
+              </option>
               {availableTimings.length > 0 ? (
                 availableTimings.map((el) => (
                   <option key={el} value={el}>
@@ -168,8 +176,10 @@ function BookingForm() {
             <input
               type="submit"
               value="Make your Reservation"
-              className={`${!formData.date ? "" : "btn--reserve--page"}`}
-              disabled={!formData.date && !formData.time}
+              className={`${
+                !formData.date || !formData.time ? "" : "btn--reserve--page"
+              }`}
+              disabled={!formData.date || !formData.time}
               onClick={handleSubmit}
             />
           </form>

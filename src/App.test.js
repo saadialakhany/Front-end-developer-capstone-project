@@ -1,7 +1,6 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 import Hero from "./Components/Hero";
-import { fetchAPI } from "./mockAPI";
-import { Reservation } from "./Components/Reservation";
 
 // test("renders learn react link", () => {
 //   render(<App />);
@@ -10,7 +9,12 @@ import { Reservation } from "./Components/Reservation";
 // });
 
 test("Renders the BookingForm heading", () => {
-  render(<Hero />);
+  render(
+    <Router>
+      <Hero />
+    </Router>
+  );
+
   const headingElement = screen.getByText("Little Lemon");
   expect(headingElement).toBeInTheDocument();
 });
