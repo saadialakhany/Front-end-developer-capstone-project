@@ -1,32 +1,16 @@
 import React from "react";
-import logo from "../images/Logo.svg";
-import menu from "../images/🦆 icon _hamburger menu.svg";
 import { Link } from "react-router-dom";
-import Modal from "../Components/Modal.js";
-import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 import { useModalContext } from "./ModalContext";
 
-function Nav() {
-  const { setModalOpen } = useModalContext();
-
+function Modal() {
+  const { isModalOpen, setModalOpen } = useModalContext();
+  if (!isModalOpen) return null;
   return (
     <>
-      <nav>
-        <div className="nav--images">
-          <img
-            src={menu}
-            alt="Ham-Burger Menu icon"
-            className="menu--icon"
-            onClick={() => setModalOpen(true)}
-          />
-          <img
-            src={logo}
-            alt="logo for Little Lemon"
-            className="nav--logo"
-          ></img>
-        </div>
-
-        <ul className="desktop--nav">
+      <div className="modal">
+        <FaTimes className="close--btn" onClick={() => setModalOpen(false)} />
+        <ul className="modal--nav">
           <li key="home">
             <Link to="/">Home</Link>
           </li>
@@ -46,9 +30,9 @@ function Nav() {
             <Link to="">Login</Link>
           </li>
         </ul>
-      </nav>
+      </div>
+      <div className="overlay" onClick={() => setModalOpen(false)}></div>
     </>
   );
 }
-
-export default Nav;
+export default Modal;
