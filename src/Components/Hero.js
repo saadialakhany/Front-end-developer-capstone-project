@@ -9,9 +9,9 @@ function Hero() {
     e.preventDefault();
     navigate("/reservation");
   }
+
   return (
     <section className="hero-section">
-      <img src={heroImage} alt="picture of food" />
       <div className="hero-textbox">
         <h1>Little Lemon</h1>
         <h3>Chicago</h3>
@@ -24,6 +24,9 @@ function Hero() {
         <button className="btn btn--reserve" onClick={handleClick}>
           Reserve a table
         </button>
+      </div>
+      <div className="hero--image">
+        <img src={heroImage} alt="picture of food" />
       </div>
     </section>
   );

@@ -92,6 +92,7 @@ export function BookingForm() {
     <>
       <div className="reservation">
         <Nav />
+
         <div className="reservation--header">
           <h1>Reserve Table</h1>
           <p>Please fill in the form below to enable us to serve you better!</p>
