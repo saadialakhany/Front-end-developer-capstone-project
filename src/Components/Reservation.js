@@ -2,6 +2,7 @@ import React, { useReducer, useState, useEffect } from "react";
 import { fetchAPI, submitAPI, getLocalStorage } from "../mockAPI";
 import { useNavigate } from "react-router-dom";
 import Nav from "./Nav";
+import Modal from "./Modal";
 
 //const availableTimings = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
@@ -92,6 +93,7 @@ export function BookingForm() {
     <>
       <div className="reservation">
         <Nav />
+        <Modal />
 
         <div className="reservation--header">
           <h1>Reserve Table</h1>

@@ -1,11 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
 import image from "../images/like.gif";
+import Modal from "./Modal";
 
 function ConfirmedBooking() {
   return (
     <section className="confirmation-booking">
       <Nav />
+      <Modal />
       <div className="confirmation--content">
         <img src={image} alt="animated thumbs up" />
         <h1>
